@@ -18,8 +18,8 @@ Sebuah aplikasi berbasis Django yang memiliki fitur **Autentikasi Pengguna (Sign
 
 ## 🛠️ Tech Stack
 
-- Python 3.x
-- Django 5.x
+- Python 3
+- Django 5
 - SQLite (default DB)
 - HTML & CSS
 
