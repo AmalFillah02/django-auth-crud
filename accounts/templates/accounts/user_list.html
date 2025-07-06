@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Pengguna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Orbitron', sans-serif;
+            color: #00fff7;
+        }
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00fff7;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #00fff7;
+        }
+        li {
+            padding: 12px 20px;
+            border-bottom: 1px solid #00fff7;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        a.logout {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #ff00cc, #3333ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff;
+            transition: box-shadow 0.3s ease;
+        }
+        a.logout:hover {
+            box-shadow: 0 0 20px #ff00cc, 0 0 30px #3333ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Pengguna</h1>
+
+    <a href="{% url 'user_create' %}">+ Tambah Pengguna</a>
+
+    <ul>
+        {% for user in users %}
+            <li>
+                {{ user.username }} - {{ user.email }}
+                | <a href="{% url 'user_update' user.pk %}">Edit</a>
+                | <a href="{% url 'user_delete' user.pk %}">Hapus</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
